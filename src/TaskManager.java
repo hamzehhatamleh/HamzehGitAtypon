@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
+// QA team has tested (Release now)
+
 // Edited by Ahmad
 
 // edited by Khaled
