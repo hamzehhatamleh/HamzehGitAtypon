@@ -95,7 +95,7 @@ public class TaskManager {
             return;
         }
 
-        System.out.print("Enterthe numberthe task you want to edit: ");
+        System.out.print("Enter the number of the task you want to edit: ");    // Hotfix edits here
         int taskNumber = scanner.nextInt();
         scanner.nextLine(); // Consume newline
 
