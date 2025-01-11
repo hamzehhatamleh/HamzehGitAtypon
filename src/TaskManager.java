@@ -2,9 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
-
 // Edited by Ahmad
+
+// edited by Khaled
+
 public class TaskManager {
 
     public static void main(String[] args) {
@@ -18,10 +19,11 @@ public class TaskManager {
             System.out.println("1. Add Task");
             System.out.println("2. View Tasks");
             System.out.println("3. Delete Task");
-            System.out.println("4. Exit");
+            System.out.println("4. Edit Task");
+            System.out.println("5. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -34,6 +36,9 @@ public class TaskManager {
                     deleteTask(scanner, tasks);
                     break;
                 case 4:
+                    editTask(scanner, tasks);
+                    break;
+                case 5:
                     System.out.println("Goodbye!");
                     scanner.close();
                     return;
@@ -61,7 +66,7 @@ public class TaskManager {
         }
     }
 
-    // This function made by ahmad
+    // This function made by Ahmad
     private static void deleteTask(Scanner scanner, List<String> tasks) {
         if (tasks.isEmpty()) {
             System.out.println("No tasks to delete.");
@@ -70,8 +75,8 @@ public class TaskManager {
             int taskNumber = scanner.nextInt();
             scanner.nextLine(); // Consume newline
 
-            if (taskNumber > 0 && taskNumber <= tasks.size()) {   tasks.set(taskNumber - 1, "[Deleted] " + tasks.get(taskNumber - 1));
-
+            if (taskNumber > 0 && taskNumber <= tasks.size()) {
+                tasks.set(taskNumber - 1, "[Deleted] " + tasks.get(taskNumber - 1));
                 tasks.remove(taskNumber - 1); // Remove the task at the specified index
                 System.out.println("Task deleted successfully.");
             } else {
@@ -79,6 +84,25 @@ public class TaskManager {
             }
         }
     }
+
+    // Khaled's function
+    private static void editTask(Scanner scanner, List<String> tasks) {
+        if (tasks.isEmpty()) {
+            System.out.println("No tasks available to edit.");
+            return;
+        }
+
+        System.out.print("Enterthe numberthe task you want to edit: ");
+        int taskNumber = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        if (taskNumber < 1 || taskNumber > tasks.size()) {
+            System.out.println("Invalid task number.");
+        } else {
+            System.out.print("Enter the new task: ");
+            String newTask = scanner.nextLine();
+            tasks.set(taskNumber - 1, newTask);
+            System.out.println("Task updated successfully.");
+        }
+    }
 }
-
-
